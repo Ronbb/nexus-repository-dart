@@ -125,9 +125,9 @@ public class DartFacetImpl extends FacetSupport implements DartFacet {
     protected Content doPutContent(final String path, final TempBlob tempBlob, final Payload payload,
             final AssetKind assetKind, final String sourceType, final String sourceUrl, final String sourceReference)
             throws IOException {
-        String[] parts = path.split("/");
-        String name = parts[1];
-        String version = parts[3].split(".tar.gz")[0];
+        String parts = path.split("/")[2];
+        String name = parts.split("-")[0];
+        String version = parts.split(".tar.gz")[0];
 
         StorageTx tx = UnitOfWork.currentTx();
 
